@@ -42,7 +42,7 @@
     }
     /* Reset ends */
 html{
-    background-color: floralwhite;
+    background-color: white;
     font-family:Monospace;
     font-size: 1em;
     
@@ -77,12 +77,10 @@ li{
 }
 /* Media Queries */
 
-@media (max-width:800px){
-    
+@media screen and (max-width:600px){
     body{
         flex-direction: column;
-    
-}
+    }
 }
 
 
