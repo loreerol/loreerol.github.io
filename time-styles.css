@@ -2,6 +2,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 body {
 	font-family: 'Roboto Mono', monospace;
     display: flex;
@@ -53,7 +60,7 @@ main{
     align-self: center;
 }
 .totalpoms{
-   display: none;
+   display:none ;
 }
 
 #hourglass{
@@ -121,9 +128,8 @@ button {
     border-radius: 5px;
     
 }
-.buttons{
-    margin-bottom: 0px
-}
+
+
 button:hover {
 	background: mistyrose;
 }
@@ -215,8 +221,8 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline;
     
 }
-#goal{
-    border-bottom: 1px solid black;
+.goal{
+  border-bottom: 1px solid pink;
 
 }
 #submit{
@@ -258,10 +264,24 @@ label{
      button{
          padding: 15px 17px;
      }
-     .goal, p{
-         font-size: 1em;
-         margin: 0px
+    
+     .options{
+         flex-direction: column;
+         z-index: 2;
      }
+     #settings-reg{
+         margin: 5px;
+     }
+     #pom-input{
+         margin: 10px;
+     }
+     #submit{
+         width: 100%
+     }
+     .switch{
+         
+     }
+     
     }
 
 
