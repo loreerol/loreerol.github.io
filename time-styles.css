@@ -39,7 +39,8 @@ main{
         border: 20px solid white;
     background: lightslategrey;
     z-index: 3;
-    overflow: hidden
+    overflow: hidden;
+	 flex: 0 0 auto;
         
 }
 .top{
