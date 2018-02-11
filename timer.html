@@ -32,7 +32,7 @@
         
         <div class="timedisplay">
             <div class="time display">
-            <h2><span class="time remaining">0:00</span></h2>
+            <h2><span class="time remaining">00:00:00</span></h2>
             <h2><span class="totalpoms">0</span></h2>
             </div>
             <div class="buttons">
@@ -46,13 +46,13 @@
     <div class="options wrapper">
         <div id="settings">
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" onclick="toggle()" id="toggler">
             <span class="slider"></span>
             </label>
         </div>
         <div id="settings-reg">
         <form action="#">
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
+            <input type="text" class="goal" size="2" maxlength="2" placeholder="00" onkeypress='return event.charCode >= 48 && event.charCode <= 57'> 
             <p class="mid">:</p>
             <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
             <p class="mid">:</p>
@@ -87,9 +87,8 @@
     </div>
     
     
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-	<script src="script.js"></script>
+	<script src="timer-scripts.js"></script>
     
 </body>
 </html>
