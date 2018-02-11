@@ -245,8 +245,8 @@ label{
 
  @media only screen and (max-width : 720px) {
      .top{
-         height:100vh;
-         
+         height:90vh;
+         flex-direction: column;         
      }
      body{
          overflow: scroll;
@@ -264,11 +264,14 @@ label{
          flex-direction: column-reverse;
          margin-left: auto;
         margin-right: auto;
+         
      }
      #hourglass{
+         display: block;
          margin-left: auto;
         margin-right: auto;
      }
+     
      button{
          padding: 15px 17px;
      }
@@ -289,7 +292,16 @@ label{
      .switch{
          
      }
+     .timedisplay{
+         display: block;
+         margin-left: auto;
+        margin-right: auto;
+     }
+     .break{
+         display: block;
+         height: 1px;
+         width: 100%;
+     }
      
     }
-
 
