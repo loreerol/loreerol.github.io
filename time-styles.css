@@ -4,21 +4,20 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 body {
 	font-family: 'Roboto Mono', monospace;
-    overflow: hidden;
     display: flex;
     justify-content: center
 }
 .container, .innersandtop, .innersandbottom{
 z-index: -2;
-  background: linear-gradient(225deg, #fbfaf7, mistyrose, #f5f4d5, #e1eaff, mistyrose);
+  background: linear-gradient(225deg, #ffdaab, mistyrose, pink, #e1eaff, pink);
   background-size: 300% 300%;
   box-sizing: border-box;
   display: table;
-  height: 100vh;
+  height: 100%;
     padding: 0;
   margin: 0;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   -webkit-animation: Rainbow 30s ease infinite;
   -moz-animation: Rainbow 30s ease infinite;
   animation: Rainbow 30s ease infinite;
@@ -40,7 +39,7 @@ main{
     background: lightslategrey;
     z-index: 3;
     overflow: hidden;
-	 flex: 0 0 auto;
+   
         
 }
 .top{
@@ -104,6 +103,7 @@ main{
     display: flex;
 	padding: 35px;
 	text-align: center;
+
 }
 h2, label, input {
 	font-size: 40px;
@@ -230,3 +230,32 @@ label{
 #pom-input{
     display: none;
 }
+
+
+ @media only screen and (max-width : 720px) {
+     .top{
+         display: block
+     }
+     body{
+         overflow: scroll;
+         
+     }
+     .container{
+        
+     }
+     .border{
+         margin: 10px;
+         width: ;
+         border:none;
+         border-radius: 0;
+     }
+     #hourglass{
+         margin-left: auto;
+        margin-right: auto;
+     }
+     button{
+         padding: 15px 17px;
+     }
+    }
+
+
