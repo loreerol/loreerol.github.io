@@ -6,7 +6,7 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+outline: none;
 }
 
 body {
@@ -62,6 +62,7 @@ main{
     display: flex;
     flex-direction: column;
     align-self: center;
+    z-index: 5;
 }
 .totalpoms{
    display:none ;
@@ -123,7 +124,6 @@ h2, label, input {
 }
 button {
 	font-size: 20px;
-	border: none;
     color: pink;
 	background: white;
 	padding: 20px 20px;
@@ -131,6 +131,7 @@ button {
 	transition: all 0.3s;
     border: 2px solid lightslategrey;
     border-radius: 5px;
+    
     
 }
 
@@ -146,16 +147,13 @@ button:hover {
     justify-content:space-between;
     
 }
-#settings{
-}
-#settings-reg{
-    
-}
+
 p{
     font-size: 2.5em;
     color: gray;
     
 }
+
 
 /* The switch - the box around the slider */
 .switch {
@@ -220,7 +218,7 @@ form input{
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
-  margin: 0; 
+  
 }
 .mid{
     display: inline;
@@ -228,6 +226,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .goal{
   border-bottom: 1px solid pink;
+    text-align: right; 
+}
 
 }
 #submit{
@@ -247,8 +247,8 @@ label{
      .top{
          height:90vh;
          flex-direction: column;
-        display: block;
-         
+         flex-shrink: 0;
+         display: block;
      }
      body{
          overflow: scroll;
@@ -265,9 +265,7 @@ label{
          display: flex;
          flex-direction: column-reverse;
          margin-left: auto;
-        margin-right: auto;
-
-         
+        margin-right: auto;     
      }
      #hourglass{
          display: block;
@@ -283,6 +281,8 @@ label{
      .options{
          flex-direction: column;
          z-index: 2;
+         
+         
      }
      #settings-reg{
          margin: 5px;
