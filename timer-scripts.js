@@ -1,4 +1,4 @@
-onst setButton = document.getElementById('submit'); 
+const setButton = document.getElementById('submit'); 
 
 const clock = document.getElementsByClassName('remaining')[0];
 
