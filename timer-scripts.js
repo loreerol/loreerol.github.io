@@ -1,4 +1,4 @@
-const setButton = document.getElementById('submit'); 
+onst setButton = document.getElementById('submit'); 
 
 const clock = document.getElementsByClassName('remaining')[0];
 
@@ -45,6 +45,9 @@ setButton.addEventListener('click', () => {
   }
     
     })
+
+
+
 
 //Toggle between pomodoro mode and regular timer
 
