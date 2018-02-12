@@ -245,10 +245,9 @@ label{
 
  @media only screen and (max-width : 720px) {
      .top{
-         height:90vh;
          flex-direction: column;
          flex-shrink: 0;
-         display: block;
+         display: flex;
      }
      body{
          overflow: scroll;
@@ -281,9 +280,8 @@ label{
      .options{
          flex-direction: column;
          z-index: 2;
-         
-         
      }
+     
      #settings-reg{
          margin: 5px;
      }
@@ -291,10 +289,11 @@ label{
          margin: 10px;
      }
      #submit{
-         width: 100%
+         width: 50%
      }
      .switch{
-         
+         display: flex;
+        
      }
      .timedisplay{
          display: block;
@@ -308,6 +307,8 @@ label{
      }
      
     }
+
+
 
 
 
