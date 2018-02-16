@@ -21,7 +21,7 @@ let time = 0;
           if((timeInSecs - counter) - 1 >= 0){
             counter++;
             time = timeInSecs - counter;
-              console.log(time);
+              makeItPretty();
           };
         };
   console.log(time);
@@ -54,7 +54,7 @@ function makeItPretty(t){
     ddhr = DD(hr, 2);
     ddmin = DD(min, 2);
     ddsec = DD(sec, 2);
-    console.log(ddhr + ':' + ddmin + ':' + ddsec);
+    clock.innerHTML = ddhr + ':' + ddmin + ':' + ddsec;
      
 };
 makeItPretty(time);   
