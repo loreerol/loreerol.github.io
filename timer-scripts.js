@@ -21,10 +21,11 @@ let time = 0;
           if((timeInSecs - counter) - 1 >= 0){
             counter++;
             time = timeInSecs - counter;
+              console.log(time);
           };
-        } ;
-  
-  
+        };
+  console.log(time);
+      
 //timer magic 
       setInterval(timeIt, 1000); 
     
@@ -40,7 +41,7 @@ function DD(number, targetLength) {
     
 //make it ready to be displayed and display it
       
-function makeItPretty(time){
+function makeItPretty(t){
 //turn seconds back into hours, minutes, and seconds      
     
     var hr = Math.floor(time / 3600);
@@ -56,12 +57,8 @@ function makeItPretty(time){
     console.log(ddhr + ':' + ddmin + ':' + ddsec);
      
 };
-makeItPretty(parsed);   
+makeItPretty(time);   
       
-        
-
-  
-  
   };
     
     });
