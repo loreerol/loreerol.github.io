@@ -1,35 +1,62 @@
-const setButton = document.getElementById('submit'); 
+let savedHours = 0;
+let savedMinutes = 0;
+let savedSeconds = 0;
 
+const setButton = document.getElementById('submit'); 
 const clock = document.getElementsByClassName('remaining')[0];
 
 let counter = 0;
+let myInterval = 0;
+let isPaused = false;
 
 setButton.addEventListener('click', () => {
-    //regular timer values
-    const timerHours = document.getElementsByClassName('reg-hours')[0].value;
-    const timerMinutes = document.getElementsByClassName('reg-minutes')[0].value;
-    const timerSeconds = document.getElementsByClassName('reg-seconds')[0].value;
-    
-    //checking that the values are not empty
-  if(timerHours != 0 || timerMinutes != 0 || timerSeconds != 0){
-     let timeInSecs = (timerHours * 3600) + (timerMinutes * 60) + (timerSeconds * 1);
-      let parsed = parseInt(timeInSecs);
-   
-let time = 0;
-//increment the timer, print to the screen
-      function timeIt(){
-          if((timeInSecs - counter) - 1 >= 0){
-            counter++;
-            time = timeInSecs - counter;
-              makeItPretty();
-          };
-        };
-  console.log(time);
-      
-//timer magic 
-      setInterval(timeIt, 1000); 
+//get the value that has been entered 
+let enteredHours = document.getElementsByClassName('reg-hours')[0].value;
+let enteredMinutes = document.getElementsByClassName('reg-minutes')[0].value;
+let enteredSeconds = document.getElementsByClassName('reg-seconds')[0].value;
+
+//check to see if this is a new value
+if (savedHours == enteredHours && savedMinutes == enteredMinutes && savedSeconds == enteredSeconds){
+
+//if true, no new value has been entered, they are pausing or restarting the clock
+
+//check to see if the clock had been paused
+if (isPaused == false){
+clearInterval(myInterval);
+        makeItPretty();
+        console.log("paused");
+        isPaused = true;
+} else{
+clearInterval(myInterval);
+    isPaused = false;
+        myInterval = setInterval(function(){
+        counter++;
+        makeItPretty();
+}, 1000)
+    console.log("started");
+    };
+}else{
+ console.log("set clock");   
+//if the value is new, reset the clock
+isPaused = false;
+clearInterval(myInterval);
+    savedHours = enteredHours;
+    savedMinutes = enteredMinutes;
+    savedSeconds = enteredSeconds;
+//start the clock 
+myInterval = setInterval(function(){
+        counter++;
+        makeItPretty();
+}, 1000)};
     
 
+//make it ready to be displayed and display it
+function makeItPretty(){
+let time = 0;
+//turn all values into seconds and combine them into one value 
+let timeInSecs = (savedHours * 3600) + (savedMinutes * 60) + (savedSeconds * 1);
+let parsed = parseInt(timeInSecs);
+    
 //Make numbers be in 2 digits
 function DD(number, targetLength) {
         var output = number + '';
@@ -38,34 +65,21 @@ function DD(number, targetLength) {
     };
     return output;
 };
-    
-//make it ready to be displayed and display it
-      
-function makeItPretty(t){
-//turn seconds back into hours, minutes, and seconds      
-    
+//turn seconds back into hours, minutes, and seconds
+    time = timeInSecs - counter;
     var hr = Math.floor(time / 3600);
     let nhr = Math.floor((time % 3600) / 60);
     var min = Math.floor(nhr);
-     var sec = Math.floor(time % 60);
-    
-    
+    var sec = Math.floor(time % 60);
+     
 //Output numbers as double digits
     ddhr = DD(hr, 2);
     ddmin = DD(min, 2);
     ddsec = DD(sec, 2);
     clock.innerHTML = ddhr + ':' + ddmin + ':' + ddsec;
-     
 };
-makeItPretty(time);   
-      
-  };
-    
-    });
 
-
-
-
+});
 //Toggle between pomodoro mode and regular timer
 
 let chk  = document.getElementById("toggler").value;
@@ -85,4 +99,3 @@ function toggle(){
         return chk;
     };
 };
-
