@@ -10,10 +10,14 @@
 </head>
 <body>
     <div class="container">
-<main class="border">
-    <div class="wrapper top">
-    
         
+<main class="border">
+     <div id="alarm">
+         <input  id="alarm-bell" type="checkbox" onclick="alarmToggle()">
+         <label for="alarm-bell" class="bell"><i class="alarm-icon fa fa-bell-slash fa-2x"></i></label>
+        </div>
+    <div class="wrapper top">
+      
         <div id="hourglass">
     <svg class="righttri" height="800" width="500">
   <polygon points="99,77 99,343 181,210" style="fill:lightslategrey;stroke:white;stroke-width:10" />
@@ -28,6 +32,7 @@
                 <div class="innersandbottom"></div>
             </div>
         </div>
+        <div></div>
         <div class="timedisplay">
             <div class="time display">
             <h2><span class="time remaining">00:00:00</span></h2>
@@ -35,8 +40,9 @@
             </div>
             
         </div>
+        
     </div>
-    
+       
     <div class="options wrapper">
         <div id="settings">
             
@@ -45,6 +51,7 @@
             <span class="slider"></span>
             </label>
         </div>
+        <div id="time-input">
         <div id="settings-reg">
         <form action="#">
             <input type="text" class="goal reg-hours" size="2" maxlength="2" placeholder="00"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'> 
@@ -54,27 +61,19 @@
             <input type="text" class="goal reg-seconds" size="2" maxlength="2" placeholder="00"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'> 
             </form></div>
         <div id="pom-input">
-        <div id="pom-work">
-        <form action="#">
-            <label>work <br></label>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
-            <p class="mid">:</p>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
-            <p class="mid">:</p>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00">
-            </form></div>
          <div id="pom-break">
         <form action="#">
             <label>rest <br></label>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
+            <input type="text" class="goal pom-hours" size="2" maxlength="2" placeholder="00"> 
             <p class="mid">:</p>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00"> 
+            <input type="text" class="goal pom-minutes" size="2" maxlength="2" placeholder="00"> 
             <p class="mid">:</p>
-            <input type="text" class="goal" size="2" maxlength="2" placeholder="00">
+            <input type="text" class="goal pom-seconds" size="2" maxlength="2" placeholder="00">
             </form></div>
             </div>
+        </div>
         
-        <button id="submit"><i class="fas fa-play"></i></button>
+        <button id="submit"><i id ="submitIcon" class="fas fa-play"></i></button>
         </div>
     
     
