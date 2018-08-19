@@ -27,11 +27,15 @@ main{
 header{
     height: 10vh;
     margin-bottom: 2vh;
+    overflow:visible;
+    opacity: 100%;
+    
 }
 
 article{
     height: 50vh;
     display: flex;
+    overflow: hidden;
 }
 
 footer{
@@ -61,7 +65,6 @@ h2{
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
-    overflow: hidden;
     flex: none;
 }
 #poem div{
@@ -74,7 +77,7 @@ h2{
 }
 
 #poem div p{
-    height: 20px;
+    height: auto;
     margin: 0px 1vw;
 }
 #poem div p:nth-child(2){
@@ -85,4 +88,11 @@ h2{
 }
 #poem div p:nth-child(4){
    margin: 0px 1vw 0px 8vw;   
+}
+
+@media only screen and (max-width : 720px){
+    main{
+        margin: 2vw;
+        width: 90vw
+    }
 }
