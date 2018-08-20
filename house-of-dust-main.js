@@ -43,7 +43,7 @@ let locationList = [
     "in a metropolis",
     "underwater",
     "in dense woods",
-    "deserted factory",
+    "in a deserted factory",
     "by a river"
 ]
 
