@@ -1,4 +1,4 @@
-"use strict";
+"use strict";"use strict";
 
 let materialList = [
     "dust",
@@ -16,14 +16,14 @@ let materialList = [
     "straw",
     "plastic",
     "roots",
-    "discareded clothing",
+    "discarded clothing",
     "broken dishes",
     "steel"
 ]
 
 let locationList = [
     "on open ground",
-    "amoung high mountains",
+    "among high mountains",
     "on flat land",
     "in a desert",
     "on a mountain",
@@ -36,7 +36,7 @@ let locationList = [
     "among other houses",
     "in a cold windy climate",
     "in a hot climate",
-    "in michigan",
+    "in Michigan",
     "in a place with both heavy rain and bright sun",
     "by an abandoned lake",
     "in a deserted church",
@@ -57,9 +57,9 @@ let lightingList = [
 let inhabitantsList = [
     "friends and enemies",
     "fisherman and families",
-    "vegitarians",
+    "vegetarians",
     "children and old people",
-    "french and german speaking people",
+    "French and German speaking people",
     "people who sleep almost all the time",
     "various birds and fish",
     "lovers",
@@ -67,7 +67,7 @@ let inhabitantsList = [
     "people who speak many languages and wear little or no clothing",
     "people who love to read",
     "little boys",
-    "people who enjoy eatting together",
+    "people who enjoy eating together",
     "people who eat a great deal",
     "people who sleep very little",
     "collectors of all types",
@@ -75,12 +75,38 @@ let inhabitantsList = [
     "very tall people"
 ]
 
+
 let count = 1;
 
+
+//I need to generate the areas for my content to live in
 function build(peram){
-//create a div with a unique id
-    var div = document.createElement('div');
-    div.setAttribute("id", `${peram}`);
+//create a parent div for flexbox 
+    var parentDiv = document.createElement('div');
+    parentDiv.setAttribute("id", "parent");
+//create a div for the poem to live in
+    var poemDiv = document.createElement('div');
+    poemDiv.setAttribute("id", `${peram}`);
+    
+//create an aside for the twitter icon to live in
+    var twitter = document.createElement('aside');
+    twitter.setAttribute("id", `t${peram}`);
+    twitter.setAttribute("class", "hidden");
+//add  button
+    var printBtn = document.createElement('button');
+    printBtn.setAttribute("onclick", `twitClick(${peram})`);
+    printBtn.setAttribute("id", `p${peram}`);
+    printBtn.setAttribute("class", "button");
+// add print icon
+    var print = document.createElement('i');
+    print.setAttribute("class", "fa fa-print");
+    
+    printBtn.appendChild(print);
+    twitter.appendChild(printBtn);
+    
+//apend the two child elements to parent div
+    parentDiv.appendChild(poemDiv);
+    parentDiv.appendChild(twitter);
 //create 4 paragraphs inside the div with unique ids
     let i = 0;
     let pId = 0;
@@ -88,33 +114,36 @@ function build(peram){
     for(i = 0; i < 4; i++) { 
     var paragraph = document.createElement("p");
     paragraph.setAttribute("id", `${peram}${i}`);
-    div.appendChild(paragraph);
+    poemDiv.appendChild(paragraph);
 }
 //create an aside for the twitter button to live in
 
     let poemElement = document.getElementById("poem");
-    poemElement.insertBefore(div, poemElement.childNodes[0]);
+    poemElement.insertBefore(parentDiv, poemElement.childNodes[0]);
     let newParagraph = document.getElementById(pId);
+    
     generate();
     
 }
 
 function generate(){
     //build the poem from randomly selected options
-    let lineOne = `A house of ${materialList[Math.floor(Math.random()*materialList.length)]}`;
-    let lineTwo = `${locationList[Math.floor(Math.random()*locationList.length)]}`;
-    let lineThree = `${lightingList[Math.floor(Math.random()*lightingList.length)]}`;
-    let lineFour = `inhabitated by ${inhabitantsList[Math.floor(Math.random()*inhabitantsList.length)]}`;
+    let lineOne = `A house of ${materialList[Math.floor(Math.random()*materialList.length)]} `;
+    let lineTwo = `${locationList[Math.floor(Math.random()*locationList.length)]} `;
+    let lineThree = `${lightingList[Math.floor(Math.random()*lightingList.length)]} `;
+    let lineFour = `inhabited by ${inhabitantsList[Math.floor(Math.random()*inhabitantsList.length)]} `;
     
     
     let LineArray = [lineOne, lineTwo, lineThree, lineFour];
-    display2(LineArray, 0);
+    display(LineArray, 0);
 
 }
 
-function display2(lineArray, i) {
+function display(lineArray, i) {
     let poemLines = lineArray[i];
     let l = 0;
+    let twitterZone = document.getElementById(`t${count}`);
+    
     function func(){
         if( l < poemLines.length) {
             let txt = poemLines[l];
@@ -123,8 +152,9 @@ function display2(lineArray, i) {
             setTimeout(func, 70);
         }
         else if (i < 3) {
-            display2(lineArray, i+1);
+            display(lineArray, i+1);
         }else{
+             twitterZone.classList.remove("hidden");
             count++;
             build(count);
         }  
@@ -132,19 +162,16 @@ function display2(lineArray, i) {
     func();  
 }
 
-function display(poemLines, i){
-    console.log(`display is called with poemLines: ${poemLines}`);
-    let l = 0;
-    function func(){
-        if( l < poemLines.length) {
-            let txt = poemLines[l];
-            document.getElementById(`${count}${i}`).innerHTML += txt;
-            l++;
-            setTimeout(func, 70);
-        }        
-    }
-    func();
+function twitClick(peram){
+    var text = document.getElementById(peram).textContent;
+    console.log(text);
+    
+    let twitterWindow = window.open(`https://twitter.com/intent/tweet?text=${text} ` + document.URL, 'twitter-popup', 'height=350,width=600');
+  if(twitterWindow.focus) { twitterWindow.focus(); }
+    return false;
+    
 }
 
-build(count);
 
+
+build(count);
