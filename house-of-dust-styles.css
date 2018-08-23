@@ -2,6 +2,16 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+button{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 body{
     background-color: #e2e9f7;
     font-family: 'Roboto Mono', monospace;
@@ -25,7 +35,7 @@ main{
 */
 }
 header{
-    height: 10vh;
+    height: auto;
     margin-bottom: 2vh;
     overflow:visible;
     opacity: 100%;
@@ -77,6 +87,11 @@ h2{
     font-family: 'VT323', monospace;
 }
 
+#parent{
+    display: flex;
+    justify-content: space-between;
+}
+
 #poem div p{
     height: auto;
     margin: 0px 1vw;
@@ -91,10 +106,32 @@ h2{
    margin: 0px 1vw 0px 8vw;   
 }
 
+div aside{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    min-width: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+
+i{
+    align-self: center;
+    margin: 20px;
+    color: #de4400;
+}
+
+
+
+
 @media only screen and (max-width : 720px){
     main{
         margin: 2vw;
-        width: 90vw
+        width: 90vw;
+        
     }
     body{
         height: 100vh;
@@ -103,4 +140,5 @@ h2{
     footer{
         height: 3vh;
     }
+    
 }
