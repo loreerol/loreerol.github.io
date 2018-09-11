@@ -1,3 +1,6 @@
+let x = 0;
+let y = 0;
+
 const randomNumber = (max) =>{
     return Math.floor(Math.random() * max);
             }
@@ -28,17 +31,27 @@ const getRandomColor = () => {
         redraw();
 			}
 		
-		
+	c.addEventListener('touchmove', (e)=>{
+        x = Math.floor(e.touches[0].clientX);
+        y = Math.floor(e.touches[0].clientY);
+        circles(x,y);
+    });
+
+
     c.addEventListener('mousemove', (e)=>{
-        const x = e.offsetX;
-        const y = e.offsetY;
-            
-    context.beginPath();
+        x = e.offsetX;
+        y = e.offsetY;
+        circles(x,y);
+            });
+    
+    
+    function circles(x,y){
+        context.beginPath();
         context.fillStyle = getRandomColor();
         context.arc(x,y,25,0, Math.PI*2);
         context.fill();
         context.closePath();
-            
-            });
-    
+            }
+
     })();
+          
